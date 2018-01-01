@@ -2,9 +2,6 @@
 __author__ = 'HoPun'
 
 class SelectionSort:
-    def __init__(self):
-        pass
-
     def sort(arr):
         length = len(arr)
         for i in range(0,length):
