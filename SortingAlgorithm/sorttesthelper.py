@@ -14,3 +14,12 @@ class SortTestHelper:
     def printArray(arr):
         for num in arr:
             print(num)
+
+    def isSorted(arr):
+        for i in range(len(arr)):
+            if arr[i] > arr[i+1]:
+                return False
+        return True
+
+
+
