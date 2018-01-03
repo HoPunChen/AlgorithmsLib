@@ -11,5 +11,8 @@ class SelectionSort(object):
                 if arr[j] < arr[minIndex]:
                     minIndex = j
             arr[i], arr[minIndex] = arr[minIndex], arr[i]
-            # print("Round ", i+1, ": ", arr)
+            # print("Round ", i + 1, ": ", arr)
         return arr
+
+# arr = [2,6,8,5,1,2,3]
+# SelectionSort.sort(arr)
