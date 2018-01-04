@@ -23,7 +23,7 @@ class InsertionSort(object):
                     arr[j] = tmp
                     break
 
-            print("Round ", i + 1, ": ", arr)
+            # print("Round ", i + 1, ": ", arr)
 
 
 

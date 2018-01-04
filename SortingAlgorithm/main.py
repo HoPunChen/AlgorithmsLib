@@ -13,7 +13,8 @@ testhelper = sorttesthelper.SortTestHelper
 ssort = selectionsort.SelectionSort
 isort = insertionsort.InsertionSort
 
-items = testhelper.generateRandomArray(20,2,999)
+# items = testhelper.generateRandomArray(20,2,999)
+items = testhelper.generateNearlyOrderedArray(100,10)
 print ("original items: %r" % items)
 copy_items = copy.deepcopy(items)
 copy_items1 = copy.deepcopy(items)
