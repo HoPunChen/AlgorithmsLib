@@ -4,7 +4,7 @@ __author__ = 'HoPun'
 from timeit import default_timer as timer
 import copy
 
-from SortingAlgorithm import selectionsort,sorttesthelper,insertionsort
+from SortingAlgorithm import selectionsort,sorttesthelper,insertionsort,bubblesort
 
 print ("-"*10 + "sorting numbers" + "-"*10)
 items = []
@@ -12,12 +12,14 @@ items = []
 testhelper = sorttesthelper.SortTestHelper
 ssort = selectionsort.SelectionSort
 isort = insertionsort.InsertionSort
+bsort = bubblesort.BubbleSort
 
 # items = testhelper.generateRandomArray(20,2,999)
 items = testhelper.generateNearlyOrderedArray(100,10)
 print ("original items: %r" % items)
 copy_items = copy.deepcopy(items)
 copy_items1 = copy.deepcopy(items)
+copy_items2 = copy.deepcopy(items)
 
 # calculate execution time for our selection sort method
 start = timer()
@@ -37,8 +39,15 @@ sorted_items1 = isort.sort(copy_items1)
 end = timer()
 duration3 = end - start
 
+# calculate execution time for our bubble sort method
+start = timer()
+sorted_items2 = isort.sort(copy_items2)
+end = timer()
+duration4 = end - start
+
 assert sorted_items == copy_items
 print ("sorted items: %r" % ssort.sort(items))
-print ("Duration: our selection sort method - %fs, python builtin sort - %fs, python insertion sort - %fs" % (duration1, duration2, duration3))
+print ("Duration: our selection sort method - %fs, python builtin sort - %fs, python insertion sort - %fs, python bubble sort - %fs"
+       % (duration1, duration2, duration3, duration4))
 
 
