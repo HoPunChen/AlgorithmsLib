@@ -1,28 +1,31 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
 import random
+from timeit import default_timer as timer
+import copy
+from SortingAlgorithm import selectionsort,insertionsort,bubblesort
 
-class SortTestHelper:
+class SortTestHelper(object):
     # 生成有n个元素的随机数组, 每个元素的随机范围为[rangeL, rangeR]
-    def generateRandomArray(length,rangeL, rangeR):
+    def generateRandomArray(self, length, rangeL, rangeR):
         random_list = []
         for i in range(length):
             random_list.append(random.randint(rangeL, rangeR))
         return random_list
 
     # 打印arr数组的所有内容
-    def printArray(arr):
+    def printArray(self, arr):
         for num in arr:
             print(num)
 
-    def isSorted(arr):
-        for i in range(len(arr)):
+    def isSorted(self, arr):
+        for i in range(len(arr)-1):
             if arr[i] > arr[i+1]:
                 return False
         return True
 
     # 生成一个完全有序的数组
-    def generateOrderedArray(length):
+    def generateOrderedArray(self, length):
         ordered_list = []
         for i in range(length):
             ordered_list.append(i)
@@ -36,7 +39,7 @@ class SortTestHelper:
     # 时, 数组完全有序
     # swapTimes
     # 越大, 数组越趋向于无序
-    def generateNearlyOrderedArray(length, swapTimes):
+    def generateNearlyOrderedArray(self, length, swapTimes):
         ordered_list = []
         for i in range(length):
             ordered_list.append(i)
@@ -47,6 +50,26 @@ class SortTestHelper:
             ordered_list[a],ordered_list[b] = ordered_list[b],ordered_list[a]
 
         return ordered_list
+
+    def testSort(self, str, arr):
+        copy_items = copy.deepcopy(arr)
+        if str == "Selection Sort":
+            print(str + ":")
+            ssort = selectionsort.SelectionSort
+            start = timer()
+            sorted_items = ssort.sort(copy_items)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
+                print("python insertion sort - %fs" % duration)
+
+test = SortTestHelper()
+items = test.generateNearlyOrderedArray(100,10)
+print("original items: %r" % items)
+ssort = test.testSort("Selection Sort",items)
+
+
 
 
 
