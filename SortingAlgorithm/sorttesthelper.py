@@ -3,7 +3,7 @@ __author__ = 'HoPun'
 import random
 from timeit import default_timer as timer
 import copy
-from SortingAlgorithm import selectionsort,insertionsort,bubblesort
+from SortingAlgorithm import selectionsort,insertionsort,bubblesort,shellsort
 
 class SortTestHelper(object):
     # 生成有n个元素的随机数组, 每个元素的随机范围为[rangeL, rangeR]
@@ -52,9 +52,9 @@ class SortTestHelper(object):
         return ordered_list
 
     def testSort(self, str, arr):
-        copy_items = copy.deepcopy(arr)
         if str == "Selection Sort":
-            print(str + ":")
+            copy_items = copy.deepcopy(arr)
+            print("-" * 10 + str + "-" * 10)
             ssort = selectionsort.SelectionSort
             start = timer()
             sorted_items = ssort.sort(copy_items)
@@ -62,13 +62,43 @@ class SortTestHelper(object):
             duration = end - start
             print(sorted_items)
             if self.isSorted(sorted_items):
+                print("python selection sort - %fs" % duration)
+
+        if str == "Insertion Sort":
+            copy_items = copy.deepcopy(arr)
+            print( "-"*10 + str  + "-"*10 )
+            isort = insertionsort.InsertionSort
+            start = timer()
+            sorted_items = isort.sort(copy_items)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
                 print("python insertion sort - %fs" % duration)
 
-test = SortTestHelper()
-items = test.generateNearlyOrderedArray(100,10)
-print("original items: %r" % items)
-ssort = test.testSort("Selection Sort",items)
+        if str == "Bubble Sort":
+            copy_items = copy.deepcopy(arr)
+            print( "-"*10 + str  + "-"*10 )
+            bsort = bubblesort.BubbleSort
+            start = timer()
+            sorted_items = bsort.sort(copy_items)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
+                print("python bubble sort - %fs" % duration)
 
+        if str == "Shell Sort":
+            copy_items = copy.deepcopy(arr)
+            print( "-"*10 + str  + "-"*10 )
+            shsort = shellsort.ShellSort
+            start = timer()
+            sorted_items = shsort.sort(copy_items)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
+                print("python shell sort - %fs" % duration)
 
 
 
