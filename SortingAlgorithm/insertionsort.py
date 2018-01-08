@@ -22,12 +22,6 @@ class InsertionSort(object):
                 else:
                     arr[j] = tmp
                     break
+        return arr
 
-            # print("Round ", i + 1, ": ", arr)
-
-
-
-
-arr = [2,6,8,5,1,2,3]
-InsertionSort.sort(arr)
 
