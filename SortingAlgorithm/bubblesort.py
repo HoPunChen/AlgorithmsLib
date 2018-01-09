@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
 
-class BubbleSort():
+class BubbleSort(object):
     def sort(arr):
         length = len(arr)
         while length > 0:

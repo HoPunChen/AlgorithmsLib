@@ -17,4 +17,4 @@ testhelper.testSort("Selection Sort",items)
 testhelper.testSort("Insertion Sort",items)
 testhelper.testSort("Bubble Sort",items)
 testhelper.testSort("Shell Sort",items)
-
+testhelper.testSort("Merge Sort",items)
