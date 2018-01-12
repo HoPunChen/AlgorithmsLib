@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
-import math
 
-class ShellSort:
+class ShellSort(object):
     def sort(arr):
         length = len(arr)
         group = int(length / 2)
