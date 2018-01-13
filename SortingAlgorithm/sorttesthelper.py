@@ -3,7 +3,7 @@ __author__ = 'HoPun'
 import random
 from timeit import default_timer as timer
 import copy
-from SortingAlgorithm import selectionsort,insertionsort,bubblesort,shellsort,mergesort,quicksort,heapsort
+from SortingAlgorithm import selectionsort,insertionsort,bubblesort,shellsort,mergesort,quicksort,heapsort,mergesortBU
 
 class SortTestHelper(object):
     # 生成有n个元素的随机数组, 每个元素的随机范围为[rangeL, rangeR]
@@ -136,6 +136,19 @@ class SortTestHelper(object):
             print(sorted_items)
             if self.isSorted(sorted_items):
                 print("python heap sort - %fs" % duration)
+
+        if str == "Merge Sort Bottom Up":
+            copy_items = copy.deepcopy(arr)
+            print("-" * 10 + str + "-" * 10)
+            msort = mergesortBU.MergeSortBU
+            start = timer()
+            sorted_items = msort.sort(copy_items)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
+                print("python merge sort - %fs" % duration)
+
 
 
 
