@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
-
+from SortingAlgorithm import insertionsort
 class QuickSort(object):
     def sort(self, lists, left, right):
         # 快速排序
         if left >= right:
             return lists
+        if right - left <= 16:
+            return insertionsort.InsertionSort.sort(lists)
         key = lists[left]
         low = left
         high = right
