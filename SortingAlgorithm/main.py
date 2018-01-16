@@ -11,7 +11,7 @@ testhelper = sorttesthelper.SortTestHelper()
 # items = testhelper.generateRandomArray(20,2,999)
 
 print ("-"*10 + "original numbers" + "-"*10 )
-items = testhelper.generateNearlyOrderedArray(100,10)
+items = testhelper.generateNearlyOrderedArray(50,5)
 print(items)
 testhelper.testSort("Selection Sort",items)
 testhelper.testSort("Insertion Sort",items)
