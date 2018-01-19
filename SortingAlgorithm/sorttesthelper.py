@@ -3,7 +3,7 @@ __author__ = 'HoPun'
 import random
 from timeit import default_timer as timer
 import copy
-from SortingAlgorithm import selectionsort,insertionsort,bubblesort,shellsort,mergesort,quicksort,heapsort,mergesortBU
+from SortingAlgorithm import selectionsort,insertionsort,bubblesort,shellsort,mergesort,quicksort,heapsort,mergesortBU,quicksort3way
 
 class SortTestHelper(object):
     # 生成有n个元素的随机数组, 每个元素的随机范围为[rangeL, rangeR]
@@ -124,6 +124,19 @@ class SortTestHelper(object):
             print(sorted_items)
             if self.isSorted(sorted_items):
                 print("python quick sort - %fs" % duration)
+
+        if str == "Quick Sort 3 Way" :
+            copy_items = copy.deepcopy(arr)
+            print("-" * 10 + str + "-" * 10)
+            qsort = quicksort3way.QuickSort3Way()
+            length = len(copy_items)
+            start = timer()
+            sorted_items = qsort.sort(copy_items, 0, length-1)
+            end = timer()
+            duration = end - start
+            print(sorted_items)
+            if self.isSorted(sorted_items):
+                print("python quick sort 3 way - %fs" % duration)
 
         if str == "Heap Sort":
             copy_items = copy.deepcopy(arr)
