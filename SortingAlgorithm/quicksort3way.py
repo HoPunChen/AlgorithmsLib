@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
+
 from random import randint
 
-class QuickSort(object):
+class QuickSort3Way(object):
     def sort(self, lists, left, right):
         # 快速排序
         if left >= right:
@@ -15,13 +16,16 @@ class QuickSort(object):
             key = lists[left]
             low = left
             high = right
-            # 这里使用了双路快排，以解决有大量相同值的列表
+            i = low+1
             while left < right:
-                while left < right and lists[right] >= key:
+                while left < right and lists[right] >key:
                     right -= 1
                 lists[left] = lists[right]
-                while left < right and lists[left] <= key:
+                while left < right and lists[left] < key:
                     left += 1
+                    i += 1
+                while left < right and lists[left] == key:
+                    i += 1
                 lists[right] = lists[left]
             lists[right] = key
             self.sort(lists, low, left - 1)
