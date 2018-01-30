@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
+import queue
+#支持重复元素的二分搜索树就不实现了，因为这违背了字典的定义，同一个key下不能存储多个value
 
 class TreeNode(object):
     def __init__(self,key,value,parent=None,left=None,right=None):
@@ -232,15 +234,15 @@ class BinarySearchTree(object):
             print(treeNode.key)
 
     def levelOrder(self):
-        q = Queue()
-        q.enqueue(self.root)
-        while q.size() > 0:
+        q = queue.Queue()
+        q.queue.enqueue(self.root)
+        while q.queue.size() > 0:
             treeNode = q.dequeue()
             print(treeNode.key)
             if treeNode.leftChild:
-                q.enqueue(treeNode.leftChild)
+                q.queue.enqueue(treeNode.leftChild)
             if treeNode.rightChild:
-                q.enqueue(treeNode.rightChild)
+                q.queue.enqueue(treeNode.rightChild)
 
     def minimum(self): #return the smallest key of the tree
         node = self.root
