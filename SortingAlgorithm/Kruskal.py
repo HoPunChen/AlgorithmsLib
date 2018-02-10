@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'HoPun'
 
-from repo import buildGraphFromFile,SparseGraph,UnionFind
 import re
 #由于我们没有构造edge类，而Kruskal算法需要用到edge的三个属性：边权重，边的两个节点。所以我们会稍微麻烦一点，需要先把这三个值找到并存起来。
 
